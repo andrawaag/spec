@@ -2751,6 +2751,249 @@ inst:Testgrammer23
 32          foaf:mbox PATTERN "\\.uk$")?
 33    }
 </pre>
+
+<pre class="shex">
+	{
+	  "type": "Schema",
+	  "shapes": [
+	    {
+	      "type": "Shape",
+	      "closed": true,
+	      "expression": {
+	        "type": "EachOf",
+	        "expressions": [
+	          {
+	            "type": "TripleConstraint",
+	            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+	            "valueExpr": {
+	              "type": "NodeConstraint",
+	              "values": [
+	                "http://schema.example/Issue"
+	              ]
+	            }
+	          },
+	          {
+	            "type": "TripleConstraint",
+	            "predicate": "http://schema.example/state",
+	            "valueExpr": {
+	              "type": "NodeConstraint",
+	              "values": [
+	                "http://schema.example/unassigned",
+	                "http://schema.example/assigned"
+	              ]
+	            }
+	          },
+	          {
+	            "type": "TripleConstraint",
+	            "predicate": "http://schema.example/reportedBy",
+	            "valueExpr": "file:///tmp/UserShape"
+	          },
+	          {
+	            "type": "TripleConstraint",
+	            "predicate": "http://schema.example/reportedOn",
+	            "valueExpr": {
+	              "type": "NodeConstraint",
+	              "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+	            }
+	          },
+	          {
+	            "type": "EachOf",
+	            "expressions": [
+	              {
+	                "type": "TripleConstraint",
+	                "predicate": "http://schema.example/reproducedBy",
+	                "valueExpr": "file:///tmp/EmployeeShape"
+	              },
+	              {
+	                "type": "TripleConstraint",
+	                "predicate": "http://schema.example/reproducedOn",
+	                "valueExpr": {
+	                  "type": "ShapeOr",
+	                  "shapeExprs": [
+	                    {
+	                      "type": "NodeConstraint",
+	                      "datatype": "http://www.w3.org/2001/XMLSchema#dateTime"
+	                    },
+	                    {
+	                      "type": "NodeConstraint",
+	                      "datatype": "http://www.w3.org/2001/XMLSchema#date"
+	                    }
+	                  ]
+	                }
+	              }
+	            ],
+	            "min": 0,
+	            "max": 1
+	          },
+	          {
+	            "type": "TripleConstraint",
+	            "inverse": true,
+	            "predicate": "http://schema.example/related",
+	            "valueExpr": "file:///tmp/IssueShape",
+	            "min": 0,
+	            "max": "INF"
+	          }
+	        ]
+	      },
+	      "extra": [
+	        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+	      ],
+	      "id": "file:///tmp/IssueShape"
+	    },
+	    {
+	      "type": "ShapeAnd",
+	      "shapeExprs": [
+	        {
+	          "type": "NodeConstraint",
+	          "pattern": "^http:/example.org/.*"
+	        },
+	        {
+	          "type": "Shape",
+	          "expression": {
+	            "type": "EachOf",
+	            "expressions": [
+	              {
+	                "type": "OneOf",
+	                "expressions": [
+	                  {
+	                    "type": "TripleConstraint",
+	                    "predicate": "http://xmlns.com/foaf/name",
+	                    "valueExpr": {
+	                      "type": "NodeConstraint",
+	                      "datatype": "http://www.w3.org/2001/XMLSchema#string"
+	                    }
+	                  },
+	                  {
+	                    "type": "EachOf",
+	                    "expressions": [
+	                      {
+	                        "type": "TripleConstraint",
+	                        "predicate": "http://xmlns.com/foaf/givenName",
+	                        "valueExpr": {
+	                          "type": "NodeConstraint",
+	                          "datatype": "http://www.w3.org/2001/XMLSchema#string"
+	                        },
+	                        "min": 1,
+	                        "max": "INF"
+	                      },
+	                      {
+	                        "type": "TripleConstraint",
+	                        "predicate": "http://xmlns.com/foaf/familyName",
+	                        "valueExpr": {
+	                          "type": "NodeConstraint",
+	                          "datatype": "http://www.w3.org/2001/XMLSchema#string"
+	                        }
+	                      }
+	                    ]
+	                  }
+	                ]
+	              },
+	              {
+	                "type": "TripleConstraint",
+	                "predicate": "http://xmlns.com/foaf/mbox",
+	                "valueExpr": {
+	                  "type": "NodeConstraint",
+	                  "nodeKind": "iri"
+	                }
+	              }
+	            ]
+	          }
+	        }
+	      ],
+	      "id": "file:///tmp/UserShape"
+	    },
+	    {
+	      "type": "ShapeAnd",
+	      "shapeExprs": [
+	        {
+	          "type": "Shape",
+	          "expression": {
+	            "type": "EachOf",
+	            "expressions": [
+	              {
+	                "type": "TripleConstraint",
+	                "predicate": "http://xmlns.com/foaf/phone",
+	                "valueExpr": {
+	                  "type": "NodeConstraint",
+	                  "nodeKind": "iri"
+	                },
+	                "min": 0,
+	                "max": "INF"
+	              },
+	              {
+	                "type": "TripleConstraint",
+	                "predicate": "http://xmlns.com/foaf/mbox",
+	                "valueExpr": {
+	                  "type": "NodeConstraint",
+	                  "nodeKind": "iri"
+	                }
+	              }
+	            ]
+	          }
+	        },
+	        {
+	          "type": "Shape",
+	          "expression": {
+	            "type": "EachOf",
+	            "expressions": [
+	              {
+	                "type": "EachOf",
+	                "expressions": [
+	                  {
+	                    "type": "TripleConstraint",
+	                    "predicate": "http://xmlns.com/foaf/phone",
+	                    "valueExpr": {
+	                      "type": "NodeConstraint",
+	                      "pattern": "^tel:\\+33"
+	                    }
+	                  },
+	                  {
+	                    "type": "TripleConstraint",
+	                    "predicate": "http://xmlns.com/foaf/mbox",
+	                    "valueExpr": {
+	                      "type": "NodeConstraint",
+	                      "pattern": "\\.fr$"
+	                    }
+	                  }
+	                ],
+	                "min": 0,
+	                "max": 1
+	              },
+	              {
+	                "type": "EachOf",
+	                "expressions": [
+	                  {
+	                    "type": "TripleConstraint",
+	                    "predicate": "http://xmlns.com/foaf/phone",
+	                    "valueExpr": {
+	                      "type": "NodeConstraint",
+	                      "pattern": "^tel:\\+44"
+	                    }
+	                  },
+	                  {
+	                    "type": "TripleConstraint",
+	                    "predicate": "http://xmlns.com/foaf/mbox",
+	                    "valueExpr": {
+	                      "type": "NodeConstraint",
+	                      "pattern": "\\.uk$"
+	                    }
+	                  }
+	                ],
+	                "min": 0,
+	                "max": 1
+	              }
+	            ]
+	          }
+	        }
+	      ],
+	      "id": "file:///tmp/EmployeeShape"
+	    }
+	  ],
+	  "@context": "https://shexspec.github.io/context.jsonld"
+	}
+	
+</pre>
+
   <p>
     We first explain some elements of the concrete syntax. 
     A triple expression is surrounded by curly braces { and }.
