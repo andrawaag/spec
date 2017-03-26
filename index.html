@@ -2716,15 +2716,15 @@ BASE <http://ex.example/>
 PREFIX ex: <http://ex.example/#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-1 ex:IssueShape {
-2  ex:state [. - ex:reserved~];
-3  ex:reportedBy @ex:UserShape
-4 }
-5
-6 <#UserShape> /http:\/\/inst.example/i {
-7   ex:name xsd:string;
-8  ex:mbox IRI+
-9 }
+ex:IssueShape {
+  ex:state [. - ex:reserved~];
+  ex:reportedBy @ex:UserShape
+}
+
+<#UserShape> /http:\/\/inst.example/i {
+  ex:name xsd:string;
+  ex:mbox IRI+
+}
 </pre>
 
 
