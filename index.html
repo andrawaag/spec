@@ -2712,44 +2712,19 @@ inst:Testgrammer23
 
 <pre class="shex">
 
-      PREFIX ex:   &lt;http://schema.example/&gt;
-      PREFIX foaf: &lt;http://xmlns.com/foaf/&gt;
-      PREFIX xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt;
-      PREFIX rdf:  &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+BASE <http://ex.example/>
+PREFIX ex: <http://ex.example/#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-1     &lt;IssueShape&gt; CLOSED EXTRA rdf:type
-2     {                           
-3         rdf:type [ex:Issue];
-4         ex:state [ex:unassigned ex:assigned]; 
-5                                            
-6         ex:reportedBy @&lt;UserShape&gt;;   
-7         ex:reportedOn xsd:dateTime;         
-8         (                                   
-9           ex:reproducedBy @&lt;EmployeeShape&gt;;  
-10          ex:reproducedOn xsd:dateTime OR xsd:date 
-11        )?;
-12        ^ex:related @&lt;IssueShape&gt;*            
-13    }
-14
-15    &lt;UserShape&gt; PATTERN "^http:/example.org/.*" {                     
-16        (                                   
-17           foaf:name xsd:string             
-18         |                                  
-19           foaf:givenName xsd:string+;      
-20           foaf:familyName xsd:string
-21        );     
-22        foaf:mbox IRI              
-23    }
-24
-25    &lt;EmployeeShape&gt; {        
-26        foaf:phone IRI*;          
-27        foaf:mbox IRI             
-28    } AND {
-29        ( foaf:phone PATTERN "^tel:\\+33"; 
-30          foaf:mbox PATTERN "\\.fr$" )?;
-31        ( foaf:phone PATTERN "^tel:\\+44"; 
-32          foaf:mbox PATTERN "\\.uk$")?
-33    }
+ex:IssueShape {
+  ex:state [. - ex:reserved~];
+  ex:reportedBy @ex:UserShape
+}
+
+<#UserShape> /http:\/\/inst.example/i {
+  ex:name xsd:string;
+  ex:mbox IRI+
+}
 </pre>
 
 
