@@ -2716,19 +2716,16 @@ BASE <http://ex.example/>
 PREFIX ex: <http://ex.example/#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-ex:IssueShape {
-  ex:state [. - ex:reserved~];
-  ex:reportedBy @ex:UserShape
-}
-
-<#UserShape> /http:\/\/inst.example/i {
-  ex:name xsd:string;
-  ex:mbox IRI+
-}
+1 ex:IssueShape {
+2  ex:state [. - ex:reserved~];
+3  ex:reportedBy @ex:UserShape
+4 }
+5
+6 <#UserShape> /http:\/\/inst.example/i {
+7  ex:name xsd:string;
+8  ex:mbox IRI+
+9 }
 </pre>
-
-
-
 
   <p>
     We first explain some elements of the concrete syntax. 
@@ -2739,25 +2736,23 @@ ex:IssueShape {
   </p>
 
   <p>
-    Then, the schema here above defines three shape labels: <span class="pre">&lt;IssueShape&gt;, &lt;UserShape&gt;, &lt;EmployeeShape&gt;</span>.
+    Then, the schema here above defines two shape labels: <span class="pre">&lt;IssueShape&gt;, &lt;UserShape&gt;</span>.
   </p>
   <p>
-    The shape expression that defines the shape label <span class="pre">&lt;IssueShape&gt;</span> starts on line 1 after the shape label, and ends with the curly bracket on line 13.
-    It has an empty list of node constraints, and a single shape definition.
-    The shape definition has two modifiers, <m>CLOSED</m>, and <m>EXTRA</m>. 
-    The parameter of the <m>EXTRA</m> modifier is a singleton set that contains the property <span class="pre">rdf:type</span>.
+    The shape expression that defines the shape label <span class="pre">&lt;IssueShape&gt;</span> starts on line 1 after the shape label, and ends with the curly bracket on line 8.
+    It has an empty list of node constraints, and a single shape definition. 
   </p>
   <p>
-    The triple expression in the shape definition is given between the curly braces on lines 2 and 13.
+    The triple expression in the shape definition is given between the curly braces on lines 2 and 8.
     It is an each-of expression composed of six sub-expressions, separated by semicolons. 
     The sub-expressions are as follows:
   </p>
     <ul>
       <li>
-        Four triple constraints on lines 3, 4, 6, 7.
+        Four triple constraints on lines 2, 3, 7, 8.
       </li>
       <li>
-        Two repeated triple expressions, one on lines 8--11 with cardinality ? = [0;1], another one on line 12 with cardinality * = [0;*].
+        Two repeated triple expressions, one on lines 8 with cardinality + = [1;*].
       </li>
     </ul>
 
