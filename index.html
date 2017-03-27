@@ -2702,14 +2702,14 @@ inst:Testgrammer23
       <!-- @@Labra: It is strange to talk about parsing ShEx compact syntax without saying what it is...I think some paragraph or explanation is needed, 
        or maybe title this section "ShEx Compact syntax" and include the grammar and then, how to parse it --> 
 
-      <div class="example">
+      
           <div class="example-title marker"><span>Parsing ShExC Example 1</span></div>
           <p>An employee must have a name and an email address that can be any string.</p>
   <p>
     Following is a ShEx schema written in ShExC with line numbers added at the left for reference.
   </p>
 
-
+<div class="example">
 <pre class="shex">
 BASE <http://ex.example/>
 PREFIX ex: <http://ex.example/#>
@@ -2725,7 +2725,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 8  ex:mbox IRI+
 9 }
 </pre>
-
+</div>
   <p>
     We first explain some elements of the concrete syntax. 
     A triple expression is surrounded by curly braces { and }.
@@ -2756,7 +2756,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     </ul>
 
   
-      </div>
+      
 
       <div class="grammarTable">
 <table border="0">
