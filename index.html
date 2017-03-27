@@ -2756,29 +2756,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     </ul>
 
   <p>
-    We explain the different forms of triple constraint that appear in the definition of <span class="pre">&lt;IssueShape&gt;</span>, by explaining their property or their value expression.
-  </p>
-
-<pre>
-1     &lt;IssueShape&gt; CLOSED EXTRA rdf:type
-2     {                           
-3         a [ex:Issue];                              <span class="comment"># rdf:type of ex:Issue</span>
-4         ex:state [ex:unassigned ex:assigned];      <span class="comment"># ex:state of ex:unassigned</span>
-                                                     <span class="comment">#          or ex:assigned</span>
-5
-6         ex:reportedBy @&lt;UserShape&gt;;                <span class="comment"># <span class="jobjref"><a href="#dfn-ShapeRef" class="obj">ShapeRef</a></span> to &lt;UserShape&gt;</span>
-
-7         ex:reportedOn xsd:dateTime;                <span class="comment"># literal with datatype xsd:dateTime</span>
-8         (
-9           ex:reproducedBy @&lt;EmployeeShape&gt;;        <span class="comment"># <span class="jobjref"><a href="#dfn-ShapeRef" class="obj">ShapeRef</a></span> to &lt;EmployeeShape&gt;</span>
-10          ex:reproducedOn xsd:dateTime OR xsd:date # literal with datatype xsd:dateTime
-                                                     <span class="comment">#                    or xsd:date</span>
-11        )?;
-12        ex:related @&lt;IssueShape&gt;*            
-13    }
-</pre>
-
-  <p>
     We now explain a few other elements of the syntax.
   </p>
 
