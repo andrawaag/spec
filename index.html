@@ -2755,33 +2755,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
       </li>
     </ul>
 
-  <p>
-    We now explain a few other elements of the syntax.
-  </p>
-
-<pre>
-15    &lt;UserShape&gt; PATTERN "^http:/example.org/.*" {                     
-         …
-23    }
-</pre>  
-
-  <p>
-    The shape expression that defines <span class="pre">&lt;UserShape&gt;</span> is composed of one node constraint <span class="pre">PATTERN "^http:/example.org/.*"</span> and one shape definition between the curly braces lines 15 to 23.
-    The node constraint <span class="pre">PATTERN "^http:/example.org/.*"</span> defines the set of IRI that satisfy a pattern given by a regular expression.
-  </p>
-
-<pre>
-25    &lt;EmployeeShape&gt; {        
-        …
-28    } AND {
-        …
-33    }
-</pre>
-
-  <p>
-    The shape expression that defines <span class="pre">&lt;EmployeeShape&gt;</span> is composed of zero node constrainst, and two shape definitions, separated by an <span class="pre">AND</span>.
-  </p>
-      </div>
+  
 
       <div class="grammarTable">
 <table border="0">
